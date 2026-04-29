@@ -645,14 +645,14 @@ export default function App() {
         <div className="max-w-7xl mx-auto px-8 flex flex-col md:flex-row justify-between items-center gap-8">
            <div className="flex items-center gap-6">
               <img 
-                src="/logo.png" 
+                src="/logo2.png" 
                 alt="AT&T Distribuidor Autorizado Logo Footer" 
                 className="h-12 w-auto opacity-100"
                 referrerPolicy="no-referrer"
               />
               <div className="h-6 w-px bg-white/20 hidden md:block"></div>
               <p className="text-white/40 text-xs max-w-xs leading-relaxed">
-                TVTELCO & DATA SOLUTIONS. Distribuidor Autorizado AT&T. Ciudad de México y cobertura nacional.
+                TVTELCO & DATA SOLUTIONS S.A DE C.V. Distribuidor Autorizado AT&T. Ciudad de México y cobertura nacional.
               </p>
            </div>
            <div className="flex items-center gap-4">
