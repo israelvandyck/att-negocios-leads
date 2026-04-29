@@ -1,0 +1,28 @@
+{
+  "entities": {
+    "Lead": {
+      "title": "Lead",
+      "description": "Información de contacto de prospectos interesados",
+      "type": "object",
+      "properties": {
+        "fullName": { "type": "string", "description": "Nombre completo del cliente" },
+        "email": { "type": "string", "format": "email", "description": "Correo electrónico" },
+        "phone": { "type": "string", "description": "Número telefónico" },
+        "companyName": { "type": "string", "description": "Nombre de la empresa" },
+        "rfc": { "type": "string", "description": "RFC de la empresa" },
+        "linesOfInterest": { "type": "integer", "description": "Número de líneas de interés" },
+        "employeeCount": { "type": "integer", "description": "Número de empleados" },
+        "selectedPackage": { "type": "string", "description": "Paquete seleccionado" },
+        "status": { "type": "string", "enum": ["PENDING", "CONTACTED", "INTERESTED", "NOT_INTERESTED"], "description": "Estado del prospecto" },
+        "createdAt": { "type": "string", "format": "date-time", "description": "Fecha de creación" }
+      },
+      "required": ["fullName", "email", "phone", "selectedPackage", "status", "createdAt"]
+    }
+  },
+  "firestore": {
+    "leads": {
+      "schema": "Lead",
+      "description": "Colección de prospectos"
+    }
+  }
+}

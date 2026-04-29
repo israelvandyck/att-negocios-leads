@@ -1,0 +1,45 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Default-deny catch-all
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    function isValidId(id) {
+      return id is string && id.size() <= 128 && id.matches('^[a-zA-Z0-9_\\-]+$');
+    }
+
+    function incoming() {
+      return request.resource.data;
+    }
+
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    // Validation helper for Lead
+    function isValidLead(data) {
+      let requiredFields = ['fullName', 'email', 'phone', 'companyName', 'selectedPackage', 'status', 'createdAt'];
+      return data.keys().hasAll(requiredFields) &&
+             data.keys().size() == 7 &&
+             data.fullName is string && data.fullName.size() > 0 && data.fullName.size() <= 100 &&
+             data.email is string && data.email.size() <= 100 && data.email.matches('^.+@.+$') &&
+             data.phone is string && data.phone.size() >= 10 && data.phone.size() <= 20 &&
+             data.companyName is string && data.companyName.size() <= 100 &&
+             data.selectedPackage is string && data.selectedPackage.size() <= 50 &&
+             data.status == 'PENDING' &&
+             data.createdAt == request.time;
+    }
+
+    match /leads/{leadId} {
+      // Public creation of leads
+      allow create: if isValidLead(incoming()) && isValidId(leadId);
+      
+      // Only admins (or specific users if we had auth) could read. 
+      // For now, no public read.
+      allow read: if false;
+      allow update, delete: if false;
+    }
+  }
+}
