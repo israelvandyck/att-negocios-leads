@@ -111,7 +111,7 @@ export default function App() {
         <div className="flex items-center gap-4">
           <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-inner">
             <img 
-              src="/regenerated_image_1777325682208.png" 
+              src="/logo.png" 
               alt="AT&T Logo" 
               className="h-7 w-auto"
               referrerPolicy="no-referrer"
@@ -645,7 +645,7 @@ export default function App() {
         <div className="max-w-7xl mx-auto px-8 flex flex-col md:flex-row justify-between items-center gap-8">
            <div className="flex items-center gap-6">
               <img 
-                src="/input_file_4.png" 
+                src="/logo.png" 
                 alt="AT&T Distribuidor Autorizado Logo Footer" 
                 className="h-12 w-auto opacity-100"
                 referrerPolicy="no-referrer"
