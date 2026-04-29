@@ -2,7 +2,7 @@ import { initializeApp } from 'firebase/app';
 import { getFirestore, doc, getDocFromServer } from 'firebase/firestore';
 import firebaseConfig from '../firebase-applet-config.json';
 
-const app = initializeApp(firebaseConfig);
+const app = initializeApp({ ...firebaseConfig, apiKey: import.meta.env.VITE_FIREBASE_API_KEY });
 export const db = getFirestore(app, firebaseConfig.firestoreDatabaseId);
 
 export enum LeadStatus {
