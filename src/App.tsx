@@ -117,7 +117,7 @@ export default function App() {
               referrerPolicy="no-referrer"
             />
           </div>
-          <h1 className="text-white font-bold text-2xl tracking-tight">AT&T <span className="font-light text-xl opacity-90">Negocios</span></h1>
+          <h1 className="text-white font-bold text-2xl tracking-tight">PLANES CONTROLADOS AT&T <span className="font-light text-xl opacity-90">Negocios</span></h1>
         </div>
           <div className="hidden md:flex items-center gap-6 text-sm font-medium text-gray-600">
             <button 
